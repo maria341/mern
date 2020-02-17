@@ -8,7 +8,7 @@ const LOGIN_FAILURE_PAGE = "/";
 export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: "maria-90.auth0.com",
-        clientID: "JoQ6QPAhh1fFro4UetJp7Ze2w5YCzhXs",
+        clientID: "ShXQmLRufVbLNgiDQPFyP6MhHx0lD6NW",
         redirectUri: "http://localhost:3000/callback",
         audience: "https://maria-90.auth0.com/userinfo",
         responseType: "token id_token",
