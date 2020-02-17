@@ -1,17 +1,18 @@
 /*eslint no-restricted-globals: 0 */
 import auth0 from 'auth0-js';
+import jwtDecode from "jwt-decode";
 
 const LOGIN_SUCCESS_PAGE = "/secret";
 const LOGIN_FAILURE_PAGE = "/";
 
 export default class Auth {
     auth0 = new auth0.WebAuth({
-        domain: "maria-20.auth0.com",
-        clientID: "WXQdSmPHQa4ZXuKZpid6CetUd6pq3RKX",
+        domain: "maria-90.auth0.com",
+        clientID: "JoQ6QPAhh1fFro4UetJp7Ze2w5YCzhXs",
         redirectUri: "http://localhost:3000/callback",
-        audience: "https://maria-20.auth0.com/userinfo",
+        audience: "https://maria-90.auth0.com/userinfo",
         responseType: "token id_token",
-        scope: "openid"
+        scope: "openid profile"
     });
 
     constructor() {
@@ -49,5 +50,13 @@ export default class Auth {
         localStorage.removeItem("id_token");
         localStorage.removeItem("expires_at");
         location.pathname = LOGIN_FAILURE_PAGE;
+    }
+
+    getProfile() {
+        if(localStorage.getItem("id_token")) {
+            return jwtDecode(localStorage.getItem("id_token"));
+        } else {
+            return {};
+        }
     }
 }
