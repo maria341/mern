@@ -7,10 +7,10 @@ const LOGIN_FAILURE_PAGE = "/";
 
 export default class Auth {
     auth0 = new auth0.WebAuth({
-        domain: "maria-90.auth0.com",
-        clientID: "ShXQmLRufVbLNgiDQPFyP6MhHx0lD6NW",
+        domain: "maria-30.auth0.com",
+        clientID: "AsuvhCkbrG3pbHTiizossD0v7XKQmQnH",
         redirectUri: "http://localhost:3000/callback",
-        audience: "https://maria-90.auth0.com/userinfo",
+        audience: "https://maria-30.auth0.com/userinfo",
         responseType: "token id_token",
         scope: "openid profile"
     });
